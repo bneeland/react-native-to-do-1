@@ -37,7 +37,7 @@ export default function App() {
       <KeyboardAvoidingView
         // behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
-        <TextInput placeholder={'Write a person'} value={person} onChangeText={text => setPerson(text)} />
+        <TextInput placeholder={'Write a person'} defaultValue={person} onChangeText={text => setPerson(text)} />
         <TouchableOpacity onPress={() => handleAddPerson()}>
           <View>
             <Text>+</Text>
