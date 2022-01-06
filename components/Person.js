@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const Task = (props) => {
+const Person = (props) => {
   return (
     <View>
       <Text>{props.text}</Text>
@@ -9,4 +9,4 @@ const Task = (props) => {
   )
 }
 
-export default Task;
+export default Person;

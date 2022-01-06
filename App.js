@@ -1,34 +1,33 @@
 import React, {useState} from 'react';
 import { KeyboardAvoidingView, TouchableOpacity, Keyboard, StyleSheet, Text, View, TextInput } from 'react-native';
-import Task from './components/Task';
+import Person from './components/Person';
 
 export default function App() {
-  const [task, setTask] = useState();
-  const [taskItems, setTaskItems] = useState([]);
+  const [person, setPerson] = useState();
+  const [personItems, setPersonItems] = useState([]);
 
-  const handleAddTask = () => {
-    // console.log(task);
+  const handleAddPerson = () => {
     Keyboard.dismiss();
-    setTaskItems([...taskItems, task]);
-    setTask(null);
+    setPersonItems([...personItems, person]);
+    setPerson(null);
   }
 
-  const completeTask = (index) => {
-    let itemsCopy = [...taskItems];
+  const completePerson = (index) => {
+    let itemsCopy = [...personItems];
     itemsCopy.splice(index, 1);
-    setTaskItems(itemsCopy);
+    setPersonItems(itemsCopy);
   }
 
   return (
     <View style={styles.container}>
       <View>
-        <Text>Tasks</Text>
+        <Text>People</Text>
         <View>
           {
-            taskItems.map((item, index) => {
+            personItems.map((item, index) => {
               return (
-                <TouchableOpacity key={index} onPress={() => completeTask(index)}>
-                  <Task text={item} />
+                <TouchableOpacity key={index} onPress={() => completePerson(index)}>
+                  <Person text={item} />
                 </TouchableOpacity>
               )
             })
@@ -38,8 +37,8 @@ export default function App() {
       <KeyboardAvoidingView
         // behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
-        <TextInput placeholder={'Write a task'} value={task} onChangeText={text => setTask(text)} />
-        <TouchableOpacity onPress={() => handleAddTask()}>
+        <TextInput placeholder={'Write a person'} value={person} onChangeText={text => setPerson(text)} />
+        <TouchableOpacity onPress={() => handleAddPerson()}>
           <View>
             <Text>+</Text>
           </View>
